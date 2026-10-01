@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using GatewayAI.Models;
 using GatewayAI.Services;
+using GatewayAI.Data;
 
 namespace GatewayAI.Controllers
 {
