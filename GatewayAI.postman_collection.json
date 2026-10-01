@@ -35,7 +35,7 @@
 			"response": []
 		},
 		{
-			"name": "2. Chat (OpenAI)",
+			"name": "2. Chat (OpenAI / Fallback Claude)",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -51,7 +51,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"UserId\": \"user_001\",\n    \"Model\": \"gpt-3.5-turbo\",\n    \"Prompt\": \"Hello, how are you?\"\n}"
+					"raw": "{\n    \"UserId\": \"user_001\",\n    \"Model\": \"gpt-3.5-turbo\",\n    \"Prompt\": \"Xin chào, bạn có thể thiết kế hệ thống được không?\",\n    \"ConversationId\": 1\n}"
 				},
 				"url": {
 					"raw": "http://localhost:5000/api/ai/chat",
@@ -70,7 +70,74 @@
 			"response": []
 		},
 		{
-			"name": "3. Get Usage Metrics",
+			"name": "3. Analyze Text",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "gateway-test-key-123",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"UserId\": \"user_001\",\n    \"TextToAnalyze\": \"I love this new iPhone, the battery life is amazing but the camera is a bit disappointing.\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/ai/analyze",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"ai",
+						"analyze"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4. Get Conversations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Api-Key",
+						"value": "gateway-test-key-123",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/conversations?userId=user_001",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"conversations"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "user_001"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5. Get Usage Metrics",
 			"request": {
 				"method": "GET",
 				"header": [

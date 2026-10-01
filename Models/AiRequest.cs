@@ -12,6 +12,7 @@ namespace GatewayAI.Models
         public long LatencyMs { get; set; }
         public int InputTokens { get; set; }
         public int OutputTokens { get; set; }
+        public decimal Cost { get; set; } // Bonus: Cost Estimation
         public string Status { get; set; } = "Success"; // Success, Error, Timeout
         public string? ErrorMessage { get; set; }
         
