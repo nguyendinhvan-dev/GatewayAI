@@ -1,0 +1,6 @@
+@GatewayAI_HostAddress = http://localhost:5192
+
+GET {{GatewayAI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
